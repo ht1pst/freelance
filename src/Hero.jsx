@@ -11,7 +11,7 @@ import location1 from "../src/assets/location-1.jpg";
 import location2 from "../src/assets/location-2.jpg";
 import location3 from "../src/assets/location-3.jpg";
 import location4 from "../src/assets/location-4.jpg";
-import byskill21 from "../src/assets/Website_1.png";
+import byskill21 from "../src/assets/website_1.png";
 import byskill22 from "../src/assets/graphic.png";
 import byskill23 from "../src/assets/data-entry.png";
 import byskill24 from "../src/assets/mobile.png";
