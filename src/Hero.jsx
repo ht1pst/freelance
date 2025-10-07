@@ -31,29 +31,24 @@ function Hero() {
     >
       {/* Header */}
       {/* Header */}
-<header className="fixed top-0 left-0 w-full h-20 flex text-white justify-between items-center px-6 md:px-20 text-lg bg-black/80 backdrop-blur-md border-b border-white/20 z-50">
+<header className="fixed top-0 left-0 w-full h-20 flex text-white justify-between items-center px-6 md:px-10 lg:px-20 text-lg bg-black/80 backdrop-blur-md border-b border-white/20 z-50">
   {/* Logo */}
-  <img src={header} alt="logo" className="w-32 md:w-40" />
+  <img src={header} alt="logo" className="w-28 md:w-32 lg:w-40" />
 
-  {/* Desktop Nav */}
-  <nav className="hidden md:flex items-center space-x-10">
-    {/* Hire Freelancers */}
+  {/* Desktop Nav (lg only) */}
+  <nav className="hidden lg:flex items-center space-x-10">
     <button
       onClick={() => setOpenMenu(openMenu === "hire" ? null : "hire")}
       className="flex items-center hover:text-blue-500 transition"
     >
       Hire freelancers <span className="ml-1">▼</span>
     </button>
-
-    {/* Find Work */}
     <button
       onClick={() => setOpenMenu(openMenu === "work" ? null : "work")}
       className="flex items-center hover:text-blue-500 transition"
     >
       Find work <span className="ml-1">▼</span>
     </button>
-
-    {/* Solutions */}
     <button
       onClick={() =>
         setOpenMenu(openMenu === "solutions" ? null : "solutions")
@@ -64,40 +59,38 @@ function Hero() {
     </button>
   </nav>
 
-  {/* Right Side (Desktop) */}
-  <nav className="hidden md:flex items-center space-x-8">
-    <a href="#" className="hover:text-blue-500">Log In</a>
-    <a href="#" className="hover:text-blue-500">Sign Up</a>
+  {/* Right Side */}
+  <div className="flex items-center space-x-6">
+    {/* Log In & Sign Up (show from md and up) */}
+    <div className="hidden md:flex items-center space-x-6">
+      <a href="#" className="hover:text-blue-500">Log In</a>
+      <a href="#" className="hover:text-blue-500">Sign Up</a>
+    </div>
+
+    {/* Post Project (only lg and up) */}
     <a
       href="#"
-      className="bg-pink-600 px-4 py-2 hover:bg-pink-700 font-semibold rounded flex justify-center"
+      className="hidden lg:flex bg-pink-600 px-4 py-2 hover:bg-pink-700 font-semibold rounded justify-center"
     >
       Post a Project
     </a>
-  </nav>
 
-  {/* Mobile Hamburger */}
-  <button
-    onClick={() => setOpenMenu(openMenu === "mobile" ? null : "mobile")}
-    className="md:hidden text-3xl"
-  >
-    ☰
-  </button>
+    {/* Hamburger (for md and below) */}
+    <button
+      onClick={() => setOpenMenu(openMenu === "mobile" ? null : "mobile")}
+      className="lg:hidden text-3xl"
+    >
+      ☰
+    </button>
+  </div>
 
-  {/* Mobile Menu */}
+  {/* Mobile Menu (for md and below) */}
   {openMenu === "mobile" && (
-    <div className="absolute top-20 left-0 w-full bg-black/95 text-white flex flex-col items-center space-y-6 py-6 md:hidden">
+    <div className="absolute top-20 left-0 w-full bg-black/95 text-white flex flex-col items-center space-y-6 py-6 lg:hidden">
       <a href="#" className="hover:text-blue-500">Hire Freelancers</a>
       <a href="#" className="hover:text-blue-500">Find Work</a>
       <a href="#" className="hover:text-blue-500">Solutions</a>
-      <a href="#" className="hover:text-blue-500">Log In</a>
-      <a href="#" className="hover:text-blue-500">Sign Up</a>
-      <a
-        href="#"
-        className="bg-pink-600 px-6 py-2 hover:bg-pink-700 font-semibold rounded"
-      >
-        Post a Project
-      </a>
+      <a href="#" className="hover:text-blue-500">Post a Project</a>
     </div>
   )}
 </header>
@@ -464,30 +457,31 @@ function Hero() {
       
 
       {/* Hero Main Content */}
-      <main className="text-white lg:pt-90 pt-50 lg:px-10 w-full space-y-20">
+      <main className="text-white lg:pt-90 md:pt-80 pt-30 lg:px-10 w-full space-y-20">
         <div>
-          <h1 className="text-4xl font-bold lg:w-190 w-80 px-3">
+          <h1 className="text-4xl md:text-5xl md:w-140 font-bold lg:w-190 w-80 px-3">
             Hire the best freelancers for any job, online.
           </h1>
-          <ul className="list-disc list-inside pl-4 lg:mt-10 mt-3 space-y-2">
-            <li className="lg:text-2xl text-xl font-semibold px-4">
-              World's largest freelance marketplace
-            </li>
-            <li className="lg:text-2xl text-xl font-semibold px-4">
-              Any job you can possibly think of
-            </li>
-            <li className="lg:text-2xl text-xl font-semibold px-4">
-              Save up to 90% & get quotes for free
-            </li>
-            <li className="lg:text-2xl text-xl font-semibold px-4">
-              Pay only when you're 100% happy
-            </li>
-          </ul>
-          <div className="flex flex-col lg:flex-row gap-5 mt-8">
-            <button className="h-15 rounded mx-auto bg-pink-600 hover:bg-pink-700 font-semibold w-70 text-xl">
+        <ul className="list-disc list-outside pl-8 lg:mt-10 md:mt-5 mt-3">
+  <li className="lg:text-2xl text-xl font-semibold">
+    World's largest freelance marketplace
+  </li>
+  <li className="lg:text-2xl text-xl font-semibold">
+    Any job you can possibly think of
+  </li>
+  <li className="lg:text-2xl text-xl font-semibold">
+    Save up to 90% & get quotes for free
+  </li>
+  <li className="lg:text-2xl text-xl font-semibold">
+    Pay only when you're 100% happy
+  </li>
+</ul>
+
+          <div className="flex flex-col lg:flex-row md:flex-row md:px-3   lg:gap-5 gap-4 mt-60 md:mt-10 ">
+            <button className="h-15 rounded lg:mx-auto md:mx-0 lg:mx-0 mx-auto bg-pink-600 hover:bg-pink-700 font-semibold w-80 md:w-60 text-xl">
               Hire a Freelancer
             </button>
-            <button className="h-15 mx-auto rounded border-white hover:text-gray-400 hover:border-gray-400 border font-semibold w-70 text-xl">
+            <button className="h-15 lg:mx-auto md:mx-0 lg:mx-0 rounded mx-auto border-white hover:text-gray-400 hover:border-gray-400 border font-semibold w-80 md:w-70 text-xl">
               Earn Money Freelancing
             </button>
           </div>
